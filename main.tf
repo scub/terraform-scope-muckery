@@ -10,9 +10,10 @@ provider "aws" {
 }
 
 module "vpc" {
-  source = "./modules/vpc" 
+  source = "./modules/vpc"
 }
 
 module "subnet" {
   source = "./modules/subnets"
+  vpc_id = "${module.vpc.vpc_us_east2_id}"
 }
